@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Currículo Faixa Roxa — BJJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --bg:#0d0d0d;
+  --bg2:#141414;
+  --bg3:#1a1a1a;
+  --bg4:#222;
+  --border:#2a2a2a;
+  --border2:#333;
+  --text:#e8e4dc;
+  --text2:#9a9690;
+  --text3:#5a5754;
+  --accent:#c9a84c;
+  --accent2:#a8873a;
+  --purple:#7F77DD;
+  --purple-bg:#1a1830;
+  --teal:#1D9E75;
+  --teal-bg:#0a1f18;
+  --coral:#D85A30;
+  --coral-bg:#1f120a;
+  --red:#E24B4A;
+  --red-bg:#1f0d0d;
+  --amber:#BA7517;
+  --amber-bg:#1f1507;
+  --gray:#888780;
+  --gray-bg:#161616;
+  --green:#639922;
+  --green-bg:#0f1a07;
+  --blue:#378ADD;
+  --blue-bg:#0a1520;
+  --pink:#D4537E;
+  --pink-bg:#1f0d14;
+  --radius:10px;
+  --radius-sm:7px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+
+/* ── SCREEN MANAGEMENT ── */
+.screen{display:none;min-height:100vh}
+.screen.active{display:flex}
+
+/* ── LOGIN ── */
+#screen-login{align-items:center;justify-content:center;padding:20px;background:var(--bg)}
+.login-box{width:100%;max-width:380px}
+.login-logo{text-align:center;margin-bottom:2rem}
+.login-logo .belt{display:inline-block;width:48px;height:16px;background:var(--purple);border-radius:3px;margin-bottom:10px;position:relative}
+.login-logo .belt::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;background:#000;border-radius:50%}
+.login-logo h1{font-family:'DM Serif Display',serif;font-size:26px;color:var(--text);font-weight:400}
+.login-logo p{font-size:13px;color:var(--text2);margin-top:4px}
+.login-form{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:12px;color:var(--text2);margin-bottom:6px;font-weight:500;letter-spacing:.3px}
+.form-group input{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:10px 14px;font-size:15px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .15s}
+.form-group input:focus{border-color:var(--accent)}
+.btn-login{width:100%;background:var(--accent);color:#000;border:none;border-radius:var(--radius-sm);padding:12px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;margin-top:.25rem}
+.btn-login:hover{background:var(--accent2)}
+.login-error{font-size:13px;color:var(--red);text-align:center;margin-top:.75rem;min-height:20px}
+
+/* ── APP SHELL ── */
+#screen-app{flex-direction:column;min-height:100vh}
+.app-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.app-header-left{display:flex;align-items:center;gap:10px}
+.app-header-logo{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent)}
+.app-header-sub{font-size:11px;color:var(--text3);display:none}
+.app-user{display:flex;align-items:center;gap:8px}
+.user-avatar{width:32px;height:32px;border-radius:50%;background:var(--purple-bg);border:1px solid var(--purple);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--purple);cursor:pointer;flex-shrink:0}
+.app-content{flex:1;padding:0}
+
+/* ── NAV TABS ── */
+.nav-tabs{display:flex;overflow-x:auto;background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;gap:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:12px 14px;font-size:13px;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-tab i{font-size:15px}
+.nav-tab .soon-dot{display:inline-block;width:5px;height:5px;background:var(--border2);border-radius:50%;margin-left:3px}
+
+/* ── MODULE PANELS ── */
+.module-panel{display:none;padding:16px;animation:fadeIn .2s ease}
+.module-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MODULE HERO ── */
+.mod-hero{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;display:grid;grid-template-columns:60px 1fr;gap:12px;align-items:start}
+.mod-number{font-family:'DM Serif Display',serif;font-size:52px;line-height:1;color:var(--accent);letter-spacing:-2px}
+.mod-meta{padding-top:2px}
+.mod-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:var(--purple-bg);color:var(--purple);padding:2px 8px;border-radius:4px;font-weight:500;margin-bottom:6px}
+.mod-title{font-size:20px;font-weight:500;color:var(--text);line-height:1.2;margin-bottom:4px}
+.mod-desc{font-size:13px;color:var(--text2);line-height:1.5}
+.mod-stats-row{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.mod-stat{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:4px}
+.mod-stat i{font-size:13px}
+
+/* ── PROGRESS BAR ── */
+.progress-section{margin-bottom:16px}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.progress-label{font-size:12px;color:var(--text3)}
+.progress-value{font-size:12px;font-weight:500;color:var(--accent)}
+.progress-track{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;background:var(--accent);transition:width .4s ease}
+
+/* ── CATEGORY BLOCK ── */
+.cat-block{margin-bottom:8px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.cat-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;background:var(--bg2);transition:background .15s;-webkit-tap-highlight-color:transparent}
+.cat-header:active{background:var(--bg3)}
+.cat-icon{width:30px;height:30px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-icon i{font-size:16px}
+.cat-name{font-size:14px;font-weight:500;color:var(--text);flex:1}
+.cat-meta{display:flex;align-items:center;gap:6px}
+.cat-count{font-size:11px;color:var(--text3)}
+.cat-pct{font-size:11px;font-weight:500}
+.cat-chev{font-size:16px;color:var(--text3);transition:transform .2s;flex-shrink:0}
+.cat-chev.open{transform:rotate(180deg)}
+.cat-body{display:none;background:var(--bg)}
+.cat-body.open{display:block}
+
+/* ── TECHNIQUE CARD ── */
+.tech-card{border-top:1px solid var(--border);transition:background .15s}
+.tech-card.done-card .tech-row{opacity:.7}
+.tech-row{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;transition:background .15s}
+.tech-row:active{background:var(--bg2)}
+.tech-num{font-size:11px;color:var(--text3);min-width:18px;font-variant-numeric:tabular-nums}
+.tech-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.tech-name{font-size:14px;color:var(--text);flex:1}
+.tech-badge{font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.badge-todo{background:var(--bg3);color:var(--text3)}
+.badge-done{background:var(--teal-bg);color:var(--teal)}
+.tech-chev{font-size:15px;color:var(--text3);transition:transform .2s;flex-shrink:0}
+.tech-chev.open{transform:rotate(180deg)}
+
+/* ── TECH DETAIL ── */
+.tech-detail{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
+.tech-detail.open{display:block}
+.detail-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px;padding-top:12px}
+.steps-list{margin-bottom:12px}
+.step-item{display:flex;gap:10px;padding:5px 0;font-size:13px;color:var(--text);line-height:1.5}
+.step-num{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;margin-top:2px}
+.tip-box{display:flex;gap:8px;align-items:flex-start;background:var(--bg2);border-radius:var(--radius-sm);padding:9px 12px;margin-bottom:12px;font-size:12px;color:var(--text2);line-height:1.5}
+.tip-box i{font-size:14px;flex-shrink:0;margin-top:1px;color:var(--amber)}
+.action-row{display:flex;gap:6px;flex-wrap:wrap}
+.act-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:7px 12px;border-radius:var(--radius-sm);border:1px solid var(--border2);cursor:pointer;text-decoration:none;color:var(--text2);background:var(--bg2);font-family:'DM Sans',sans-serif;transition:background .15s}
+.act-btn:active{background:var(--bg3)}
+.act-btn i{font-size:14px}
+.act-btn.done-btn{background:var(--teal-bg);border-color:var(--teal);color:var(--teal)}
+
+/* ── COMING SOON MODULE ── */
+.coming-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;min-height:300px}
+.cs-icon{width:60px;height:60px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.cs-icon i{font-size:28px;color:var(--text3)}
+.cs-title{font-size:18px;font-weight:500;color:var(--text);margin-bottom:8px}
+.cs-desc{font-size:14px;color:var(--text2);max-width:260px;line-height:1.5}
+.cs-badge{display:inline-block;font-size:11px;background:var(--bg2);border:1px solid var(--border);color:var(--text3);padding:4px 12px;border-radius:20px;margin-top:16px}
+
+/* ── ADMIN PANEL ── */
+#screen-admin{flex-direction:column;min-height:100vh}
+.admin-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.admin-header h2{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent);font-weight:400}
+.admin-content{flex:1;padding:16px;max-width:480px;margin:0 auto;width:100%}
+.admin-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px}
+.admin-section h3{font-size:14px;font-weight:500;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.admin-section h3 i{font-size:16px;color:var(--accent)}
+.admin-user-list{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.admin-user-item{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--bg3);border-radius:var(--radius-sm);font-size:13px;color:var(--text)}
+.admin-user-item .email{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.admin-user-item .role{font-size:11px;color:var(--text3);background:var(--bg);padding:2px 7px;border-radius:4px;flex-shrink:0;margin:0 8px}
+.admin-user-item .del-btn{color:var(--red);background:none;border:none;cursor:pointer;padding:4px;font-size:16px;display:flex;align-items:center;flex-shrink:0}
+.admin-add-form{display:flex;flex-direction:column;gap:10px}
+.admin-add-form input{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:10px 14px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .15s}
+.admin-add-form input:focus{border-color:var(--accent)}
+.btn-add{background:var(--accent);color:#000;border:none;border-radius:var(--radius-sm);padding:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s}
+.btn-add:hover{background:var(--accent2)}
+.admin-msg{font-size:13px;text-align:center;margin-top:8px;min-height:18px}
+.admin-msg.ok{color:var(--teal)}
+.admin-msg.err{color:var(--red)}
+.btn-back{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--text2);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:4px 0}
+
+/* ── DROPDOWN MENU ── */
+.user-menu{position:absolute;top:56px;right:12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;z-index:200;min-width:200px;display:none}
+.user-menu.open{display:block}
+.user-menu-info{padding:12px 14px;border-bottom:1px solid var(--border)}
+.user-menu-name{font-size:13px;font-weight:500;color:var(--text)}
+.user-menu-email{font-size:11px;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.user-menu-item{display:flex;align-items:center;gap:8px;padding:11px 14px;font-size:13px;color:var(--text2);cursor:pointer;transition:background .15s}
+.user-menu-item:hover{background:var(--bg3)}
+.user-menu-item i{font-size:16px}
+.user-menu-item.danger{color:var(--red)}
+
+/* ── GLOBAL PROGRESS ── */
+.global-prog{padding:12px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.gp-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.gp-label{font-size:11px;color:var(--text3)}
+.gp-value{font-size:11px;font-weight:500;color:var(--accent)}
+.gp-track{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.gp-fill{height:100%;border-radius:2px;background:var(--accent);transition:width .4s ease}
+
+@media(min-width:480px){
+  .app-header-sub{display:block}
+  .mod-hero{grid-template-columns:70px 1fr}
+  .mod-number{font-size:60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ LOGIN ═══════════════════════════ -->
+<div id="screen-login" class="screen active">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="belt"></div>
+      <h1>Faixa Roxa</h1>
+      <p>Currículo técnico de jiu-jitsu</p>
+    </div>
+    <div class="login-form">
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" id="login-email" placeholder="seu@email.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn-login" onclick="doLogin()">Entrar</button>
+      <div class="login-error" id="login-error"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ APP ═══════════════════════════ -->
+<div id="screen-app" class="screen">
+  <div style="position:relative">
+    <div class="app-header">
+      <div class="app-header-left">
+        <div class="app-header-logo">BJJ</div>
+        <div class="app-header-sub" style="color:var(--text3);font-size:12px">Currículo Faixa Roxa</div>
+      </div>
+      <div class="app-user">
+        <div class="user-avatar" id="user-avatar" onclick="toggleMenu()">?</div>
+      </div>
+    </div>
+    <div class="user-menu" id="user-menu">
+      <div class="user-menu-info">
+        <div class="user-menu-name" id="menu-name">–</div>
+        <div class="user-menu-email" id="menu-email">–</div>
+      </div>
+      <div class="user-menu-item" id="menu-admin-btn" style="display:none" onclick="goAdmin()">
+        <i class="ti ti-settings"></i> Gerenciar usuários
+      </div>
+      <div class="user-menu-item danger" onclick="doLogout()">
+        <i class="ti ti-logout"></i> Sair
+      </div>
+    </div>
+  </div>
+
+  <div class="global-prog" id="global-prog">
+    <div class="gp-row"><span class="gp-label">Progresso geral do currículo</span><span class="gp-value" id="gp-val">0%</span></div>
+    <div class="gp-track"><div class="gp-fill" id="gp-fill" style="width:0%"></div></div>
+  </div>
+
+  <div class="nav-tabs" id="nav-tabs"></div>
+
+  <div class="app-content">
+    <div id="module-panels"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ ADMIN ═══════════════════════════ -->
+<div id="screen-admin" class="screen">
+  <div class="admin-header">
+    <h2>Painel Admin</h2>
+    <button class="btn-back" onclick="goApp()"><i class="ti ti-arrow-left" style="font-size:16px"></i> Voltar</button>
+  </div>
+  <div class="admin-content">
+    <div class="admin-section">
+      <h3><i class="ti ti-users"></i> Usuários cadastrados</h3>
+      <div class="admin-user-list" id="admin-user-list"></div>
+    </div>
+    <div class="admin-section">
+      <h3><i class="ti ti-user-plus"></i> Adicionar usuário</h3>
+      <div class="admin-add-form">
+        <input type="email" id="new-email" placeholder="E-mail do aluno">
+        <input type="password" id="new-pass" placeholder="Senha inicial">
+        <input type="text" id="new-name" placeholder="Nome completo">
+        <button class="btn-add" onclick="addUser()">Cadastrar aluno</button>
+      </div>
+      <div class="admin-msg" id="admin-msg"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── DATA: CURRICULO ───
+const MODULES = [
+{id:'quedas', num:'01', label:'Quedas', icon:'ti-arrow-down-circle', color:'var(--teal)', colorBg:'var(--teal-bg)',
+ desc:'Projeções e contra-quedas essenciais para a luta em pé.',
+ categories:[
+  {id:'q-proj', name:'Projeções', icon:'ti-bolt', col:'#1D9E75', colBg:'#0a1f18', colTxt:'#5DCAA5', techniques:[
+    {n:'Kouchi Gari',d:'Varrida interna do tornozelo com desequilíbrio lateral. Uma das quedas mais seguras para o jiu-jitsu competitivo.',
+     s:['Controle manga e lapela, encurte a distância','Entre em diagonal pelo lado do adversário','Encaixe o pé na parte interna do tornozelo','Varra o tornozelo e projete com tração dos braços'],
+     t:'O timing supera a força — execute quando o adversário transfere peso para o lado.',yt:'kouchi gari jiu jitsu tutorial'},
+    {n:'Osoto Gari',d:'Projeção com gancho externo. Clássico do judô, altamente eficaz no jiu-jitsu. Desequilibre para trás antes do gancho.',
+     s:['Controle cabeça e cotovelo, desequilibre para trás','Gire o ombro como uma porta abrindo','Encaixe o gancho na coxa ou panturrilha','Projete varrendo com tração dos braços'],
+     t:'Quebre o equilíbrio para trás primeiro — sem isso o gancho não funciona.',yt:'osoto gari jiu jitsu tutorial'},
+    {n:'Morote Seoi Nage',d:'Projeção de ombro bilateral. Exige entrada explosiva de costas com encaixe duplo por baixo dos braços.',
+     s:['Puxe para desequilibrar e entre de costas explosivamente','Posicione os pés entre os pés do adversário','Encaixe o quadril abaixo do quadril dele','Incline o tronco para frente elevando o adversário'],
+     t:'O quadril deve entrar abaixo do adversário — é a alavanca principal.',yt:'morote seoi nage tutorial jiu jitsu'},
+    {n:'Tai Otoshi',d:'Projeção com bloqueio lateral. A perna bloqueio cria o obstáculo — não é alavanca de força.',
+     s:['Puxe desequilibrando para frente e diagonal','Gire os pés e posicione-se de lado ao adversário','Coloque a perna como barreira entre as pernas dele','Puxe com os braços — o adversário cai pela barreira'],
+     t:'A perna de bloqueio é um obstáculo, não uma alavanca de força.',yt:'tai otoshi judo jiu jitsu tutorial'},
+    {n:'Uchi Mata',d:'Projeção com golpe interno na coxa. Alta efetividade em alto nível. Combine com feint de seoi nage.',
+     s:['Controle e desequilibre para frente','Entre girando de costas, quadril próximo ao adversário','Golpeie com a coxa interna na virilha ou coxa','Projete girando o tronco e elevando a perna'],
+     t:'Combine com feint de seoi nage para abrir espaço para o uchi mata.',yt:'uchi mata tutorial jiu jitsu'}
+  ]},
+  {id:'q-def', name:'Contra-quedas', icon:'ti-shield', col:'#0F6E56', colBg:'#051510', colTxt:'#9FE1CB', techniques:[
+    {n:'Defesa ao Single Leg',d:'Quando o adversário captura uma perna, jamba a cabeça, eleve o quadril e reverta para contra-ataque.',
+     s:['Não ceda o quadril ao sentir o single leg','Jamba a cabeça do adversário controlando pela nuca','Eleve o quadril e retire a perna capturada','Aplique guilhotina, suplex ou vá para as costas'],
+     t:'O sprawl rápido impede o avanço — reaja antes de perder o equilíbrio.',yt:'defesa single leg jiu jitsu sprawl'},
+    {n:'Defesa ao Double Leg',d:'Contra o double leg, execute o sprawl jogando o quadril para baixo e trazendo os joelhos ao chão.',
+     s:['Sinta a entrada de double leg e afaste o quadril','Jogue o quadril para baixo (sprawl) em cima do adversário','Controle a nuca de barriga para baixo','Aplique guilhotina de frente ou vá para as costas'],
+     t:'Reaja antes do adversário completar a entrada — o timing é no início do movimento.',yt:'defesa double leg sprawl jiu jitsu'}
+  ]}
+ ]
+},
+{id:'gd-fechada', num:'02', label:'Guard. Fechada', icon:'ti-shield', color:'var(--purple)', colorBg:'var(--purple-bg)',
+ desc:'Posição base do jiu-jitsu. Dominar seus ataques é requisito fundamental para a faixa roxa.',
+ categories:[
+  {id:'gf-bracos', name:'Chaves de braço', icon:'ti-arm', col:'#D85A30', colBg:'#1f120a', colTxt:'#F0997B', techniques:[
+    {n:'Armlock (juji-gatame)',d:'Chave direta hiperextendendo o cotovelo. Abra o ângulo, posicione a perna na cabeça e eleve o quadril.',
+     s:['Controle o pulso do braço-alvo com as duas mãos','Abra o ângulo colocando a perna no quadril adversário','Gire e posicione a outra perna na cabeça','Eleve o quadril — o joelho pressiona o cotovelo'],
+     t:'Quanto mais perpendicular o ângulo, mais eficiente a finalização.',yt:'armlock guarda fechada jiu jitsu tutorial'},
+    {n:'Americana (ude garami)',d:'Chave de ombro clássica. Trave o braço em L no chão e rotacione internamente o ombro.',
+     s:['Controle o pulso no chão em 90° (braço em L)','Passe o outro braço por baixo do cotovelo','Pegue seu próprio pulso formando o grip "4"','Eleve o cotovelo e empurre o pulso em arco'],
+     t:'Mantenha o cotovelo no chão — se ele levantar, a chave perde o efeito.',yt:'americana guarda fechada jiu jitsu'}
+  ]},
+  {id:'gf-tri', name:'Triângulo', icon:'ti-triangle', col:'#1D9E75', colBg:'#0a1f18', colTxt:'#5DCAA5', techniques:[
+    {n:'Triângulo clássico',d:'Estrangulamento com as pernas. Capture cabeça e um braço entre as coxas e pressione as carótidas.',
+     s:['Abra o ângulo empurrando o quadril para o lado','Empurre um braço e capture a cabeça','Cruze o tornozelo atrás do joelho oposto','Puxe a cabeça para baixo e aperte as coxas'],
+     t:'O ângulo é fundamental — sem ele o triângulo raramente finaliza.',yt:'triângulo guarda fechada jiu jitsu tutorial'},
+    {n:'Triângulo invertido',d:'Variação girando 180°. Eficaz quando o adversário abaixa a cabeça para defender o clássico.',
+     s:['Inicie o triângulo clássico sem finalizar','Gire 180° em volta do braço capturado','Cruze os tornozelos posicionado de lado','Aperte as coxas e controle a cabeça'],
+     t:'Útil quando o adversário abaixa a cabeça para defender o clássico.',yt:'triângulo invertido guarda fechada jiu jitsu'}
+  ]},
+  {id:'gf-omo', name:'Omoplata', icon:'ti-rotate-clockwise', col:'#378ADD', colBg:'#0a1520', colTxt:'#85B7EB', techniques:[
+    {n:'Omoplata clássica',d:'Chave de ombro com as pernas. Rotacione o quadril, passe a perna sobre o ombro e trave a articulação.',
+     s:['Abra o ângulo empurrando o quadril para o lado','Passe a perna por cima do ombro do adversário','Cruze os tornozelos e sente para frente','Controle o quadril com as mãos e pressione'],
+     t:'A perna deve ficar paralela ao ombro — não deixe escorregar para o pescoço.',yt:'omoplata guarda fechada tutorial jiu jitsu'},
+    {n:'Omoplata com rolamento',d:'Quando o adversário tenta escapar rolando, acompanhe mantendo o controle do ombro.',
+     s:['Aplique a omoplata clássica','Quando ele rolar para escapar, acompanhe o rolamento','Mantenha as pernas cruzadas durante o rolar','Sente para cima finalizando ou controlando'],
+     t:'Antecipe o rolamento — lidere o movimento para não perder a posição.',yt:'omoplata rolamento jiu jitsu'}
+  ]},
+  {id:'gf-str', name:'Estrangulamentos', icon:'ti-circle-x', col:'#E24B4A', colBg:'#1f0d0d', colTxt:'#F09595', techniques:[
+    {n:'Gravata cruzada (cross collar)',d:'Estrangulamento clássico com kimono. Pegada profunda nos dois lados do colarinho.',
+     s:['Pegue profundo no colarinho (4 dedos) com a primeira mão','Insira a outra mão no colarinho oposto','Cruze os pulsos atrás do pescoço','Contraia os cotovelos e gire os pulsos'],
+     t:'Quanto mais profunda a pegada no colarinho, mais eficiente o estrangulamento.',yt:'gravata cruzada cross collar jiu jitsu'},
+    {n:'Guilhotina da guarda',d:'Quando o adversário abaixa a cabeça. Antebraço na traqueia, feche a guarda e puxe para cima.',
+     s:['Quando ele abaixa a cabeça, envolva o pescoço','Posicione o antebraço na traqueia ou carótida','Feche a guarda com as pernas para controle','Puxe o pescoço para cima e eleve o quadril'],
+     t:'O antebraço deve estar na traqueia/carótida — não atrás do pescoço.',yt:'guilhotina guarda fechada jiu jitsu'},
+    {n:'Ezekiel (sode guruma jime)',d:'Estrangulamento com a própria manga do kimono. Efetivo quando o adversário tenta passar.',
+     s:['Passe o braço por trás da cabeça do adversário','Segure sua própria manga com os dedos','Posicione o antebraço livre na garganta','Puxe contra a carótida fechando as mãos'],
+     t:'O adversário frequentemente não percebe esta pegada — aplique rapidamente.',yt:'ezekiel choke guarda fechada jiu jitsu'}
+  ]},
+  {id:'gf-rasp', name:'Raspagens', icon:'ti-refresh', col:'#BA7517', colBg:'#1f1507', colTxt:'#EF9F27', techniques:[
+    {n:'Tesoura (scissor sweep)',d:'Movimento de tesoura entre o joelho e o pescoço. Requer sincronização das duas pernas.',
+     s:['Controle manga e colarinho do adversário','Posicione uma perna no estômago, outra atrás do joelho','Puxe o colarinho enquanto empurra o joelho','Execute o movimento de tesoura para derrubar'],
+     t:'As duas pernas devem mover simultaneamente em direções opostas — isso gera o poder.',yt:'tesoura scissor sweep guarda fechada jiu jitsu'},
+    {n:'Hip bump sweep',d:'Explosão do quadril para cima enquanto empurra o ombro do adversário.',
+     s:['Abra a guarda e apoie-se nos pés','Sente explosivamente elevando o quadril','Empurre o ombro do adversário com o mesmo movimento','Controle o pescoço e finalize na montada ou Kimura'],
+     t:'Sem a explosão do quadril o adversário facilmente defende com a base.',yt:'hip bump sweep jiu jitsu'},
+    {n:'Pêndulo (pendulum sweep)',d:'Raspagem usando o swing da perna para gerar momentum. Funciona bem após tentativa de americana.',
+     s:['Controle manga e cotovelo do adversário','Coloque um pé no quadril do adversário','Gire o quadril 90° e desça a perna de apoio','Swing da perna para gerar força e vire'],
+     t:'Funciona bem em combinação com tentativa de americana como setup.',yt:'pendulum sweep guarda fechada jiu jitsu'},
+    {n:'Flower sweep (florinha)',d:'Capture o tornozelo traseiro e use a perna como alavanca para a montada.',
+     s:['Abra a guarda e controle o pulso do adversário','Capture o pé/tornozelo traseiro com a mão','Coloque o pé na dobra do joelho oposto','Puxe o tornozelo e vire para montar'],
+     t:'Quanto mais alto você segura o tornozelo, mais força você tem.',yt:'flower sweep guarda fechada jiu jitsu'}
+  ]},
+  {id:'gf-esp', name:'Posições especiais', icon:'ti-star', col:'#888780', colBg:'#161616', colTxt:'#B4B2A9', techniques:[
+    {n:'Mão de vaca',d:'Raspagem com controle duplo do pulso e empurrão do quadril com o pé.',
+     s:['Controle o pulso com as duas mãos (mão de vaca)','Abra a guarda e coloque o pé no quadril','Empurre o quadril enquanto puxa o pulso em direção contrária','Vire para o lado e assuma controle lateral'],
+     t:'O controle do pulso impede que o adversário use o braço como base.',yt:'mão de vaca sweep guarda fechada'},
+    {n:'Ida para as costas',d:'Ganhe as costas quando o adversário tenta se levantar — 4 pontos na competição.',
+     s:['Quando ele tenta se levantar, abra a guarda','Gire para o lado abraçando o tronco por baixo de um braço','Suba pelas costas colocando os ganchos nos quadris','Estabeleça os cinturões e controle do colarinho'],
+     t:'Antecipe o movimento de levantar — reaja no início, não depois.',yt:'ida costas guarda fechada jiu jitsu'}
+  ]}
+ ]
+},
+{id:'meia-gd', num:'03', label:'Meia Guarda', icon:'ti-layout-sidebar-left', color:'var(--blue)', colorBg:'var(--blue-bg)', desc:'Raspagens, passagens e finalizações da meia guarda.', soon:true},
+{id:'borboleta', num:'04', label:'Borboleta', icon:'ti-butterfly', color:'var(--amber)', colorBg:'var(--amber-bg)', desc:'Guarda de gancho: sweeps e passagens.', soon:true},
+{id:'cem-kg', num:'05', label:'100 Quilos', icon:'ti-layout-kanban', color:'var(--coral)', colorBg:'var(--coral-bg)', desc:'Side control: joelho na barriga, montada e finalizações.', soon:true},
+{id:'aranha', num:'06', label:'G. Aranha', icon:'ti-chart-radar', color:'var(--green)', colorBg:'var(--green-bg)', desc:'Guarda aranha: 4 passagens, 4 raspagens, 5 finalizações.', soon:true},
+{id:'costas', num:'07', label:'Costas', icon:'ti-user-check', color:'var(--red)', colorBg:'var(--red-bg)', desc:'Pegada de costas: 6 estrangulamentos, 2 chaves, 2 saídas.', soon:true},
+{id:'montada', num:'08', label:'Montada', icon:'ti-crown', color:'var(--pink)', colorBg:'var(--pink-bg)', desc:'Montada: estrangulamentos, chaves e triângulo.', soon:true},
+{id:'regras', num:'09', label:'Regras', icon:'ti-gavel', color:'var(--gray)', colorBg:'var(--gray-bg)', desc:'Pontuações, tempos, golpes proibidos e árbitro.', soon:true}
+];
+
+// ─── AUTH ───
+const ADMIN = 'phreis.propaganda@gmail.com';
+
+async function sha256(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function getUsers(){
+  return JSON.parse(localStorage.getItem('bjj_users')||'{}');
+}
+function saveUsers(u){
+  localStorage.setItem('bjj_users', JSON.stringify(u));
+}
+function getSession(){
+  return JSON.parse(sessionStorage.getItem('bjj_session')||'null');
+}
+function setSession(user){
+  sessionStorage.setItem('bjj_session', JSON.stringify(user));
+}
+
+async function seedAdmin(){
+  const users = getUsers();
+  if(!users[ADMIN]){
+    const hash = await sha256('bjj2025');
+    users[ADMIN] = {name:'Admin', hash, role:'admin'};
+    saveUsers(users);
+  }
+}
+
+async function doLogin(){
+  const email = document.getElementById('login-email').value.trim().toLowerCase();
+  const pass = document.getElementById('login-pass').value;
+  const errEl = document.getElementById('login-error');
+  errEl.textContent = '';
+  if(!email||!pass){errEl.textContent='Preencha e-mail e senha.';return;}
+  const users = getUsers();
+  const user = users[email];
+  if(!user){errEl.textContent='Usuário não encontrado.';return;}
+  const hash = await sha256(pass);
+  if(hash !== user.hash){errEl.textContent='Senha incorreta.';return;}
+  setSession({email, name:user.name, role:user.role});
+  showApp();
+}
+
+function doLogout(){
+  sessionStorage.removeItem('bjj_session');
+  showScreen('login');
+  document.getElementById('user-menu').classList.remove('open');
+}
+
+function showApp(){
+  const s = getSession();
+  if(!s){showScreen('login');return;}
+  document.getElementById('user-avatar').textContent = (s.name||s.email).charAt(0).toUpperCase();
+  document.getElementById('menu-name').textContent = s.name || '–';
+  document.getElementById('menu-email').textContent = s.email;
+  document.getElementById('menu-admin-btn').style.display = s.role==='admin' ? 'flex' : 'none';
+  showScreen('app');
+  buildApp();
+}
+
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+}
+
+function toggleMenu(){
+  document.getElementById('user-menu').classList.toggle('open');
+}
+document.addEventListener('click', e=>{
+  const menu = document.getElementById('user-menu');
+  const avatar = document.getElementById('user-avatar');
+  if(menu && !menu.contains(e.target) && e.target!==avatar) menu.classList.remove('open');
+});
+
+function goAdmin(){
+  document.getElementById('user-menu').classList.remove('open');
+  renderAdminUsers();
+  showScreen('admin');
+}
+function goApp(){showScreen('app');}
+
+// ─── PROGRESS ───
+function getProgress(){
+  const s = getSession();
+  if(!s) return {};
+  return JSON.parse(localStorage.getItem('bjj_prog_'+s.email)||'{}');
+}
+function saveProgress(p){
+  const s = getSession();
+  if(!s) return;
+  localStorage.setItem('bjj_prog_'+s.email, JSON.stringify(p));
+}
+function isDone(key){return !!getProgress()[key]}
+function toggleDoneKey(key){
+  const p = getProgress();
+  if(p[key]) delete p[key]; else p[key]=1;
+  saveProgress(p);
+}
+
+function totalTechs(){
+  return MODULES.filter(m=>!m.soon).reduce((a,m)=>a+m.categories.reduce((b,c)=>b+c.techniques.length,0),0);
+}
+function totalDone(){
+  const p = getProgress();
+  return Object.keys(p).length;
+}
+function updateGlobalProg(){
+  const total = totalTechs();
+  const done = totalDone();
+  const pct = Math.round(done/total*100);
+  document.getElementById('gp-val').textContent = pct+'%';
+  document.getElementById('gp-fill').style.width = pct+'%';
+}
+
+// ─── BUILD APP ───
+let activeModule = 0;
+const openCats = new Set();
+const openTechs = new Set();
+
+function buildApp(){
+  buildTabs();
+  buildPanels();
+  updateGlobalProg();
+}
+
+function buildTabs(){
+  const el = document.getElementById('nav-tabs');
+  el.innerHTML = MODULES.map((m,i)=>`
+    <div class="nav-tab${i===activeModule?' active':''}" id="tab-${i}" onclick="switchModule(${i})">
+      <i class="ti ${m.icon}"></i>${m.label}${m.soon?'<span class="soon-dot"></span>':''}
+    </div>`).join('');
+  setTimeout(()=>{
+    const t = document.getElementById('tab-'+activeModule);
+    if(t) t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  },50);
+}
+
+function buildPanels(){
+  const el = document.getElementById('module-panels');
+  el.innerHTML = MODULES.map((m,mi)=>`
+    <div class="module-panel${mi===activeModule?' active':''}" id="panel-${mi}">
+      ${m.soon ? buildSoon(m) : buildModule(m, mi)}
+    </div>`).join('');
+}
+
+function buildSoon(m){
+  return`<div class="coming-soon">
+    <div class="cs-icon"><i class="ti ${m.icon}"></i></div>
+    <div class="cs-title">${m.label}</div>
+    <div class="cs-desc">${m.desc}</div>
+    <span class="cs-badge">Em breve</span>
+  </div>`;
+}
+
+function buildModule(m, mi){
+  const totalT = m.categories.reduce((a,c)=>a+c.techniques.length,0);
+  const doneT = m.categories.reduce((a,c,ci)=>a+c.techniques.filter((_,ti)=>isDone(mi+'-'+ci+'-'+ti)).length,0);
+  const pct = Math.round(doneT/totalT*100);
+  let html = `
+  <div class="mod-hero">
+    <div class="mod-number">${m.num}</div>
+    <div class="mod-meta">
+      <div class="mod-badge" style="background:${m.colorBg};color:${m.color}">
+        <i class="ti ${m.icon}"></i> Módulo ${m.num} de 09
+      </div>
+      <div class="mod-title">${m.label}</div>
+      <div class="mod-desc">${m.desc}</div>
+      <div class="mod-stats-row">
+        <div class="mod-stat" style="color:${m.color}"><i class="ti ti-list-check"></i> <span id="mod-done-${mi}">${doneT}</span> / ${totalT}</div>
+        <div class="mod-stat"><i class="ti ti-layout-grid"></i> ${m.categories.length} categorias</div>
+      </div>
+    </div>
+  </div>
+  <div class="progress-section" style="padding:0">
+    <div class="progress-header">
+      <span class="progress-label" style="font-size:11px;color:var(--text3)">Progresso do módulo</span>
+      <span class="progress-value" style="font-size:11px;color:${m.color}" id="mod-pct-${mi}">${pct}%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="mod-prog-${mi}" style="width:${pct}%;background:${m.color}"></div></div>
+  </div>
+  <div style="margin-top:12px">`;
+  m.categories.forEach((cat,ci)=>{
+    const catKey = mi+'-cat-'+ci;
+    const isOpen = openCats.has(catKey);
+    const catDone = cat.techniques.filter((_,ti)=>isDone(mi+'-'+ci+'-'+ti)).length;
+    html += `<div class="cat-block">
+      <div class="cat-header" onclick="toggleCat('${catKey}')">
+        <div class="cat-icon" style="background:${cat.colBg}"><i class="ti ${cat.icon}" style="color:${cat.col}"></i></div>
+        <span class="cat-name">${cat.name}</span>
+        <div class="cat-meta">
+          <span class="cat-count" id="catcount-${catKey}">${catDone}/${cat.techniques.length}</span>
+          <span class="cat-pct" style="color:${cat.col}" id="catpct-${catKey}">${Math.round(catDone/cat.techniques.length*100)}%</span>
+        </div>
+        <i class="ti ti-chevron-down cat-chev${isOpen?' open':''}" id="catchev-${catKey}"></i>
+      </div>
+      <div class="cat-body${isOpen?' open':''}" id="catbody-${catKey}">`;
+    cat.techniques.forEach((t,ti)=>{
+      const tKey = mi+'-'+ci+'-'+ti;
+      const done = isDone(tKey);
+      const tOpen = openTechs.has(tKey);
+      html += `<div class="tech-card${done?' done-card':''}" id="techcard-${tKey}">
+        <div class="tech-row" onclick="toggleTech('${tKey}')">
+          <span class="tech-num">${String(ti+1).padStart(2,'0')}</span>
+          <span class="tech-dot" style="background:${cat.col}"></span>
+          <span class="tech-name">${t.n}</span>
+          <span class="tech-badge ${done?'badge-done':'badge-todo'}" id="badge-${tKey}">${done?'✓ Feito':'Pendente'}</span>
+          <i class="ti ti-chevron-down tech-chev${tOpen?' open':''}" id="techchev-${tKey}"></i>
+        </div>
+        <div class="tech-detail${tOpen?' open':''}" id="techdetail-${tKey}">
+          <div class="detail-desc">${t.d}</div>
+          <div class="steps-list">${t.s.map((st,si)=>`<div class="step-item">
+            <span class="step-num" style="background:${cat.colBg};color:${cat.col}">${si+1}</span>
+            <span>${st}</span>
+          </div>`).join('')}</div>
+          <div class="tip-box"><i class="ti ti-bulb" style="color:var(--amber)"></i><span><strong>Dica:</strong> ${t.t}</span></div>
+          <div class="action-row">
+            <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(t.yt)}" target="_blank" class="act-btn"><i class="ti ti-player-play"></i> YouTube</a>
+            <a href="https://www.google.com/search?q=${encodeURIComponent(t.n+' jiu jitsu')}&tbm=isch" target="_blank" class="act-btn"><i class="ti ti-photo"></i> Imagens</a>
+            <button class="act-btn${done?' done-btn':''}" id="donebtn-${tKey}" onclick="markDone(event,'${tKey}','${catKey}',${mi})">
+              <i class="ti ti-${done?'circle-check':'circle-plus'}"></i> ${done?'Feito':'Marcar'}
+            </button>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+function switchModule(i){
+  activeModule = i;
+  document.querySelectorAll('.nav-tab').forEach((t,ti)=>{
+    t.classList.toggle('active', ti===i);
+    t.style.color = ti===i ? MODULES[i].color : '';
+    t.style.borderBottomColor = ti===i ? MODULES[i].color : '';
+  });
+  document.querySelectorAll('.module-panel').forEach((p,pi)=>{
+    p.classList.toggle('active', pi===i);
+  });
+  const t = document.getElementById('tab-'+i);
+  if(t) t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleCat(key){
+  if(openCats.has(key)) openCats.delete(key); else openCats.add(key);
+  const open = openCats.has(key);
+  document.getElementById('catbody-'+key)?.classList.toggle('open', open);
+  document.getElementById('catchev-'+key)?.classList.toggle('open', open);
+}
+
+function toggleTech(key){
+  if(openTechs.has(key)) openTechs.delete(key); else openTechs.add(key);
+  const open = openTechs.has(key);
+  document.getElementById('techdetail-'+key)?.classList.toggle('open', open);
+  document.getElementById('techchev-'+key)?.classList.toggle('open', open);
+}
+
+function markDone(e, tKey, catKey, mi){
+  e.stopPropagation();
+  toggleDoneKey(tKey);
+  const done = isDone(tKey);
+  const card = document.getElementById('techcard-'+tKey);
+  const badge = document.getElementById('badge-'+tKey);
+  const btn = document.getElementById('donebtn-'+tKey);
+  if(card) card.classList.toggle('done-card', done);
+  if(badge){badge.textContent=done?'✓ Feito':'Pendente';badge.className='tech-badge '+(done?'badge-done':'badge-todo');}
+  if(btn){
+    btn.className='act-btn'+(done?' done-btn':'');
+    btn.innerHTML=`<i class="ti ti-${done?'circle-check':'circle-plus'}"></i> ${done?'Feito':'Marcar'}`;
+  }
+  const m = MODULES[mi];
+  const ci = parseInt(catKey.split('-cat-')[1]);
+  const cat = m.categories[ci];
+  const catDone = cat.techniques.filter((_,ti)=>isDone(mi+'-'+ci+'-'+ti)).length;
+  const catPct = Math.round(catDone/cat.techniques.length*100);
+  document.getElementById('catcount-'+catKey).textContent = `${catDone}/${cat.techniques.length}`;
+  document.getElementById('catpct-'+catKey).textContent = catPct+'%';
+  const totalT = m.categories.reduce((a,c)=>a+c.techniques.length,0);
+  const doneT = m.categories.reduce((a,c,ci2)=>a+c.techniques.filter((_,ti)=>isDone(mi+'-'+ci2+'-'+ti)).length,0);
+  const modPct = Math.round(doneT/totalT*100);
+  const progEl = document.getElementById('mod-prog-'+mi);
+  const pctEl = document.getElementById('mod-pct-'+mi);
+  const doneEl = document.getElementById('mod-done-'+mi);
+  if(progEl) progEl.style.width = modPct+'%';
+  if(pctEl) pctEl.textContent = modPct+'%';
+  if(doneEl) doneEl.textContent = doneT;
+  updateGlobalProg();
+}
+
+// ─── ADMIN ───
+function renderAdminUsers(){
+  const users = getUsers();
+  const list = document.getElementById('admin-user-list');
+  const entries = Object.entries(users);
+  if(entries.length===0){list.innerHTML='<div style="font-size:13px;color:var(--text3);text-align:center;padding:8px">Nenhum usuário cadastrado.</div>';return;}
+  list.innerHTML = entries.map(([email, u])=>`
+    <div class="admin-user-item">
+      <span class="email">${email}</span>
+      <span class="role">${u.role==='admin'?'admin':'aluno'}</span>
+      ${email!==ADMIN?`<button class="del-btn" onclick="removeUser('${email}')"><i class="ti ti-trash"></i></button>`:'<span style="width:24px"></span>'}
+    </div>`).join('');
+}
+
+async function addUser(){
+  const email = document.getElementById('new-email').value.trim().toLowerCase();
+  const pass = document.getElementById('new-pass').value;
+  const name = document.getElementById('new-name').value.trim();
+  const msg = document.getElementById('admin-msg');
+  msg.textContent='';
+  if(!email||!pass||!name){msg.textContent='Preencha todos os campos.';msg.className='admin-msg err';return;}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='E-mail inválido.';msg.className='admin-msg err';return;}
+  const users = getUsers();
+  if(users[email]){msg.textContent='E-mail já cadastrado.';msg.className='admin-msg err';return;}
+  const hash = await sha256(pass);
+  users[email]={name, hash, role:'student'};
+  saveUsers(users);
+  document.getElementById('new-email').value='';
+  document.getElementById('new-pass').value='';
+  document.getElementById('new-name').value='';
+  msg.textContent='Aluno cadastrado com sucesso!';msg.className='admin-msg ok';
+  renderAdminUsers();
+  setTimeout(()=>msg.textContent='',3000);
+}
+
+function removeUser(email){
+  if(!confirm(`Remover ${email}?`)) return;
+  const users = getUsers();
+  delete users[email];
+  saveUsers(users);
+  renderAdminUsers();
+}
+
+// ─── INIT ───
+seedAdmin().then(()=>{
+  document.getElementById('login-pass').addEventListener('keydown', e=>{if(e.key==='Enter')doLogin();});
+  document.getElementById('login-email').addEventListener('keydown', e=>{if(e.key==='Enter')doLogin();});
+  const s = getSession();
+  if(s) showApp(); else showScreen('login');
+});
+</script>
+</body>
+</html>
