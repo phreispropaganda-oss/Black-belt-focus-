@@ -206,6 +206,65 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   .mod-hero{grid-template-columns:70px 1fr}
   .mod-number{font-size:60px}
 }
+
+/* ── TDAH BUTTON + XP ── */
+.tdah-toggle{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--bg3);cursor:pointer;color:var(--text2);font-size:16px;transition:all .15s;flex-shrink:0}
+.tdah-toggle.on{background:var(--purple-bg);border-color:var(--purple);color:var(--purple)}
+.xp-chip{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:3px 9px;font-size:12px;font-weight:600;color:#F5A623}
+.xp-chip i{font-size:13px}
+
+/* ── FOCUS CARD (TDAH MODE) ── */
+body.tdah-mode .cat-block{display:none!important}
+body.tdah-mode .focus-wrap{display:block!important}
+.focus-wrap{display:none}
+.focus-hint{background:var(--purple-bg);border:1px solid var(--purple);border-radius:var(--radius-sm);padding:10px 12px;font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.5}
+.focus-hint strong{color:var(--purple)}
+.focus-nav-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.fnav-btn{width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--bg2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;color:var(--text2);flex-shrink:0}
+.fnav-btn:active{background:var(--bg3)}
+.fnav-info{flex:1;text-align:center;font-size:12px;color:var(--text3)}
+.focus-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden}
+.fc-top{padding:14px 14px 10px}
+.fc-cat-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px;opacity:.7}
+.fc-title{font-size:20px;font-weight:600;color:var(--text);line-height:1.2;margin-bottom:10px}
+.fc-body{padding:0 14px 14px;display:flex;flex-direction:column;gap:8px}
+.fc-steps-list{display:flex;flex-direction:column;gap:7px}
+.fc-step{display:flex;gap:9px;align-items:flex-start}
+.fc-step-n{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px}
+.fc-step-t{font-size:14px;color:var(--text);line-height:1.5;padding-top:2px}
+.fc-actions{padding:12px 14px;background:var(--bg3);border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.fc-mark-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;padding:11px;border-radius:var(--radius-sm);border:1px solid var(--border2);cursor:pointer;font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text2);transition:all .15s}
+.fc-mark-btn.done{background:var(--teal-bg);border-color:var(--teal);color:var(--teal)}
+.fc-mark-btn i{font-size:16px}
+
+/* ── POS BOX + MISTAKE BOX ── */
+.pos-box{background:var(--bg3);border-radius:var(--radius-sm);padding:9px 11px;margin-bottom:9px;font-size:12px;color:var(--text2);line-height:1.5;border-left:2px solid var(--accent)}
+.pos-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);display:block;margin-bottom:3px}
+.mistake-box{display:flex;gap:7px;align-items:flex-start;background:rgba(226,75,74,.08);border:1px solid rgba(226,75,74,.18);border-radius:var(--radius-sm);padding:8px 10px;font-size:12px;color:var(--text2);line-height:1.5}
+.mistake-box i{color:var(--red);font-size:14px;flex-shrink:0;margin-top:1px}
+
+/* ── TIMER CHIPS ── */
+.timer-chips{display:flex;gap:5px;flex-wrap:wrap}
+.timer-chip{font-size:11px;padding:5px 9px;border-radius:20px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);cursor:pointer;display:flex;align-items:center;gap:3px}
+.timer-chip:active{background:var(--bg3)}
+.timer-chip i{font-size:12px}
+
+/* ── TIMER OVERLAY ── */
+.timer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.timer-overlay.active{display:flex}
+.timer-circle{width:180px;height:180px;border-radius:50%;background:var(--bg2);border:3px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.timer-time{font-family:'DM Serif Display',serif;font-size:52px;color:var(--accent);letter-spacing:-2px;line-height:1}
+.timer-sub{font-size:12px;color:var(--text3);margin-top:4px}
+.timer-tname{font-size:13px;font-weight:600;color:var(--text);text-align:center;max-width:220px}
+.timer-btns{display:flex;gap:10px}
+.tbtn{padding:10px 20px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif}
+.tbtn.primary{background:var(--accent);border-color:var(--accent);color:#000}
+.tbtn:active{opacity:.8}
+
+/* ── XP TOAST ── */
+.xp-toast{position:fixed;top:66px;right:14px;background:var(--bg2);border:1px solid #F5A623;border-radius:var(--radius);padding:9px 13px;z-index:400;display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#F5A623;transform:translateX(200%);transition:transform .25s;pointer-events:none}
+.xp-toast.show{transform:translateX(0)}
+.xp-toast i{font-size:17px}
 </style>
 </head>
 <body>
@@ -242,6 +301,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="app-header-sub" style="color:var(--text3);font-size:12px">Currículo Faixa Roxa</div>
       </div>
       <div class="app-user">
+        <div class="xp-chip" id="xp-chip"><i class="ti ti-bolt"></i><span id="xp-val">0 XP</span></div>
+        <div class="tdah-toggle" id="tdah-toggle" onclick="toggleTDAH()" title="Modo Foco TDAH"><i class="ti ti-brain"></i></div>
         <div class="user-avatar" id="user-avatar" onclick="toggleMenu()">?</div>
       </div>
     </div>
@@ -294,6 +355,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 </div>
+
+<!-- TIMER OVERLAY -->
+<div class="timer-overlay" id="timer-overlay">
+  <div class="timer-tname" id="timer-tname"></div>
+  <div class="timer-circle">
+    <div class="timer-time" id="timer-disp">05:00</div>
+    <div class="timer-sub" id="timer-sub">restante</div>
+  </div>
+  <div class="timer-btns">
+    <button class="tbtn" onclick="stopTimer()">Fechar</button>
+    <button class="tbtn primary" id="timer-pause-btn" onclick="pauseTimer()">Pausar</button>
+  </div>
+</div>
+<!-- XP TOAST -->
+<div class="xp-toast" id="xp-toast"><i class="ti ti-bolt"></i><span id="xp-toast-txt">+10 XP</span></div>
 
 <script>
 // ─── DATA: CURRICULO ───
@@ -704,6 +780,180 @@ const MODULES = [
 }
 ];
 
+// ─── ENRICHMENT: pos (posição de entrada) + cm (erro comum) ───
+const EXTRA = {
+'Kouchi Gari':{pos:'📌 Controle manga + lapela. Diagonal ao adversário, joelhos semiflexos, peso equilibrado.',cm:'Varrer sem puxar os braços. Varredura e puxada devem ser simultâneas.'},
+'Osoto Gari':{pos:'📌 Corpo a corpo, controle nuca + cotovelo adversário. Peso ligeiramente para frente.',cm:'Entrar sem desequilibrar o adversário antes. O desequilíbrio para trás precede o gancho.'},
+'Morote Seoi Nage':{pos:'📌 Entrada de costas 180°. Seu quadril ABAIXO do quadril adversário — esse detalhe é tudo.',cm:'Quadril na mesma altura ou acima do adversário. Quadril alto = projeção impossível.'},
+'Tai Otoshi':{pos:'📌 Perpendicular ao adversário. Perna de bloqueio posicionada À FRENTE das pernas dele.',cm:'Forçar a perna como alavanca. Ela é obstáculo — os braços fazem o trabalho.'},
+'Uchi Mata':{pos:'📌 Entrada de costas, quadril PRÓXIMO ao adversário para alcançar a virilha com a coxa.',cm:'Entrar longe do adversário. Sem proximidade de quadril, o golpe de coxa não alcança.'},
+'Defesa ao Single Leg':{pos:'📌 Adversário capturando uma perna. Seu peso na perna capturada, tronco ereto, mão na nuca.',cm:'Esperar o adversário completar a captura. O sprawl deve ser imediato ao sentir o movimento.'},
+'Defesa ao Double Leg':{pos:'📌 Adversário com as duas mãos em suas pernas avançando. Você ereto com peso para trás.',cm:'Pular para CIMA no sprawl. O sprawl vai para BAIXO — o peso do corpo neutraliza o double leg.'},
+'Armlock (juji-gatame)':{pos:'📌 Você embaixo na guarda, adversário em cima. Controle o pulso do braço-alvo com AMBAS as mãos.',cm:'Puxar o braço para baixo com força antes de elevar o quadril. Eleve o quadril primeiro.'},
+'Americana (ude garami)':{pos:'📌 Braço adversário próximo ao chão. Empurre o punho acima da cabeça em 90° e trave com o peito.',cm:'Deixar o cotovelo do adversário sair do chão. Seu peito deve prender o cotovelo no chão.'},
+'Triângulo clássico':{pos:'📌 Você embaixo. Quadril empurrado 45° para o lado. Um braço adversário dentro, outro fora.',cm:'Aplicar sem o ângulo de 45°. Sem ângulo, a coxa não alcança a carótida e ele respira.'},
+'Triângulo invertido':{pos:'📌 Triângulo clássico encaixado. Você vai girar 180° POR CIMA do braço capturado, pernas cruzadas.',cm:'Soltar as pernas durante o giro. As pernas ficam cruzadas DURANTE todo o giro.'},
+'Omoplata clássica':{pos:'📌 Você embaixo. Ângulo aberto, perna passando POR CIMA do ombro (não do pescoço). Cruze tornozelos.',cm:'Colocar a perna no pescoço em vez do ombro. Muito acima = pescoço; correto = paralelo ao ombro.'},
+'Omoplata com rolamento':{pos:'📌 Omoplata encaixada. Adversário inicia rolamento para escapar — você vai ACOMPANHAR o rolamento.',cm:'Resistir ao rolamento. A omoplata com rolamento funciona exatamente POR CAUSA do rolamento.'},
+'Gravata cruzada (cross collar)':{pos:'📌 Adversário postado na guarda. Cotovelos para baixo e para dentro. Grip profundo — mão inteira.',cm:'Grip raso no colarinho. A mão inteira precisa entrar — isso define 80% da eficiência.'},
+'Guilhotina da guarda':{pos:'📌 Adversário abaixou a cabeça dentro da sua guarda. Antebraço posiciona NA FRENTE da garganta.',cm:'Antebraço atrás do pescoço em vez da frente da garganta. Atrás não estrangula nada.'},
+'Ezekiel (sode guruma jime)':{pos:'📌 Adversário na guarda, cabeça abaixada. Um braço passa POR TRÁS da nuca discretamente.',cm:'Fazer o movimento de forma óbvia. A eficiência vem da surpresa — configure lentamente.'},
+'Tesoura (scissor sweep)':{pos:'📌 Adversário postado, joelhos no chão. Perna no abdômen + perna atrás do joelho. Controle manga+colarinho.',cm:'Mover as pernas em sequência. A tesoura precisa ser simultânea — as duas pernas ao mesmo tempo.'},
+'Hip bump sweep':{pos:'📌 Adversário postado na guarda. Você abre a guarda, pés no chão apoiados, vai sentar EXPLOSIVO.',cm:'Executar devagar. Hip bump funciona APENAS com explosão — devagar ele reequilibra.'},
+'Pêndulo (pendulum sweep)':{pos:'📌 Adversário postado. Controle manga E cotovelo do mesmo braço. Pé no quadril. Prepare o ângulo.',cm:'Controlar só a manga sem o cotovelo. Sem controle do cotovelo, o braço dobra e escapa.'},
+'Flower sweep (florinha)':{pos:'📌 Adversário postado. Sua mão alcança o tornozelo TRASEIRO adversário. Perna no joelho dele.',cm:'Capturar muito baixo (perto do pé). Quanto mais próximo do joelho você segura, mais alavanca.'},
+'Mão de vaca':{pos:'📌 Adversário postado. Você captura o pulso adversário com AS DUAS mãos. Pé no quadril do mesmo lado.',cm:'Usar só uma mão no pulso. Com uma mão ele consegue puxar o braço de volta.'},
+'Ida para as costas da guarda':{pos:'📌 Adversário tentando se levantar dentro da sua guarda. Mãos dele no chão, empurrando para cima.',cm:'Esperar ele ficar de pé. O movimento para as costas deve ser DURANTE o levantar.'},
+'Dog Fight sweep':{pos:'📌 Você com underhook (braço por baixo da axila). Posição de quadrupedia lateral, perna travada.',cm:'Tentar sem o underhook. Sem underhook o adversário controla — e vai para as costas em você.'},
+'Old School (captura do pé)':{pos:'📌 Embaixo na meia guarda com underhook. Mão de fora alcança o tornozelo TRASEIRO adversário.',cm:'Soltar o underhook para capturar o pé. Tente manter underhook com um braço + pé com o outro.'},
+'Knee Shield sweep':{pos:'📌 Você embaixo com joelho como escudo no peito adversário. Escudo aponta para o ROSTO dele.',cm:'Escudo mal posicionado (apontando para o lado). O joelho precisa apontar para o rosto.'},
+'Electric Chair':{pos:'📌 Embaixo na meia guarda. Captura a perna traseira criando ashi garami. Pé no quadril adversário.',cm:'Não posicionar o pé no quadril. O pé no quadril é a alavanca — sem ele não cria pressão.'},
+'Knee Slice (faca do joelho)':{pos:'📌 Você por cima. Seu ombro pressiona o quadril adversário. Joelho vai deslizar em diagonal para dentro.',cm:'Levantar o quadril para cortar. Sem pressão, ele recompõe. O corte é com pressão constante.'},
+'Leg Drag (arraste de perna)':{pos:'📌 Você por cima. Controle da perna de guarda com as duas mãos. Vai arrastar para um lado.',cm:'Arrastar sem avançar o quadril simultaneamente. Arraste e avanço do quadril são simultâneos.'},
+'Torreando pela meia guarda':{pos:'📌 Você por cima. Adversário gira tentando criar espaço — o joelho dele fica exposto nesse momento.',cm:'Tentar sem o movimento do adversário. Espere ele girar — o espaço criado é o que permite.'},
+'Smash Pass':{pos:'📌 Você por cima, adversário com knee shield. Você vai ACHATAR (smash) usando o peso do corpo.',cm:'Tentar com o escudo ainda ativo. Primeiro neutralize o escudo, depois complete a passagem.'},
+'Kimura por cima':{pos:'📌 Você por cima. Adversário tenta underhook. Capture o pulso DURANTE a busca do underhook.',cm:'Capturar o pulso depois do underhook já estabelecido. Precisa ser DURANTE a busca.'},
+"D'Arce Choke":{pos:"📌 Você por cima. Adversário com cabeça baixa. Seu braço entra ENTRE cabeça e ombro (por baixo).",cm:"Entrar por CIMA do ombro. O D'Arce é por BAIXO do pescoço — entre cabeça e ombro."},
+'Anaconda Choke':{pos:'📌 Você por cima, adversário semi-prone. Seu braço passa POR CIMA do ombro (oposto ao D\'Arce).',cm:'Aplicar sem rolar. O Anaconda geralmente não finaliza sem a rolagem — ela é parte da técnica.'},
+'North-South Choke':{pos:'📌 Posição norte-sul (sua cabeça nos pés do adversário). Antebraço na carótida lateral.',cm:'Pressionar para baixo com força dos braços. A pressão vem da ROTAÇÃO do tronco para o lado.'},
+'Kimura por baixo':{pos:'📌 Você embaixo. Adversário apoia uma mão no chão como base. Essa mão está vulnerável.',cm:'Deixar o adversário tirar a mão do chão antes de capturar. Capture no momento em que a mão toca.'},
+'Kneebar':{pos:'📌 Você embaixo. Perna adversária capturada. Antebraço ATRÁS do joelho como fulcro. ⚠️ Verifique regras.',cm:'Aplicar em faixas onde não é permitido. Verifique SEMPRE o regulamento do evento.'},
+'Gancho simples (single hook)':{pos:'📌 Adversário na frente da borboleta. UM gancho no quadril. Underhook DO MESMO LADO do gancho.',cm:'Underhook e gancho em lados opostos. Precisam ser NO MESMO LADO — ipsilaterais.'},
+'Gancho duplo (double hook)':{pos:'📌 Adversário ERETO na frente. DOIS ganchos nos quadris (na dobra da virilha). Controle de mangas.',cm:'Encaixar ganchos nas coxas em vez dos quadris. Precisam ser NA DOBRA DA VIRILHA.'},
+'X-Sweep':{pos:'📌 Um gancho no quadril + mão OPOSTA capturando tornozelo do MESMO LADO do gancho (forma X).',cm:'Mão e gancho no mesmo lado (seria gancho simples). No X, são lados OPOSTOS.'},
+'Kisaki Gaeshi (borboleta frontal)':{pos:'📌 Adversário PRÓXIMO. Controle pescoço+manga. Seus pés no ABDÔMEN adversário (não nos quadris).',cm:'Adversário longe. Os pés no abdômen precisam de proximidade para ter alavancagem.'},
+'Torreando contra borboleta':{pos:'📌 Você por cima na borboleta. Pressione os dois joelhos para baixo. Mova RÁPIDO para o lado.',cm:'Mover devagar. A borboleta reage rápido — o torreando precisa ser explosivo e contínuo.'},
+'Knee Slice contra borboleta':{pos:'📌 Você por cima. Neutralize o gancho mais fraco primeiro com o quadril antes de cortar.',cm:'Cortar sem neutralizar o gancho. Um gancho ativo vai bloquear o corte.'},
+'Smash Pass contra borboleta':{pos:'📌 Você por cima com pressão direta. Vai sobre os pés/ganchos com o peso do corpo.',cm:'Tentar com ganchos fortes e adversário fresco. Funciona melhor quando os ganchos estão fracos.'},
+'Leg Drag contra borboleta':{pos:'📌 Você por cima. Controle dos ganchos adversários com as mãos. Arraste para um lado, avance pelo outro.',cm:'Arrastar os ganchos sem avançar o quadril no mesmo movimento. São movimentos simultâneos.'},
+'Joelho na barriga':{pos:'📌 Do 100 quilos. Controle do pulso adversário com uma mão + cinto/colarinho com a outra.',cm:'Colocar o joelho na costela em vez do abdômen. Joelho no abdômen cria mais pressão e controle.'},
+'Inverter o lado do joelho na barriga':{pos:'📌 Você no joelho na barriga. Vai girar 180° mantendo o controle do pulso durante toda a transição.',cm:'Soltar o pulso durante a transição. O pulso é a âncora — sem ele perde o controle.'},
+'Montar do joelho na barriga':{pos:'📌 Você no joelho na barriga. Adversário vai empurrar o joelho — esse é exatamente o momento.',cm:'Saltar sem esperar o empurrão. Sem o empurrão, o adversário tem tempo de defender.'},
+'Montar do 100 quilos':{pos:'📌 Você no 100 quilos. Adversário inicia a virada lateral tentando escapar com shrimp.',cm:'Saltar quando já está totalmente de lado. O salto deve ser no INÍCIO da virada.'},
+'Americana do 100 quilos':{pos:'📌 Do 100 quilos. Braço próximo empurrado acima da cabeça em 90°. SEU PEITO pressionando a cabeça.',cm:'Não pressionar o peito na cabeça. Sem essa pressão, ele levanta o cotovelo e escapa.'},
+'Kimura do 100 quilos':{pos:'📌 Do 100 quilos. Braço próximo capturado. Você mantém o peso do corpo no adversário durante.',cm:'Perder a pressão corporal ao girar o ombro. Se levanta, ele consegue rolar e escapar.'},
+'Armlock direto do 100 quilos':{pos:'📌 Do 100 quilos. Braço DISTANTE estendido (empurrando seu quadril ou tronco). Você captura.',cm:'Usar força dos braços para forçar a extensão. A extensão vem da elevação do QUADRIL.'},
+'Crucifix do 100 quilos':{pos:'📌 Adversário de barriga para baixo. Você atrás com um braço dele entre suas pernas em triângulo.',cm:'Triângulo de pernas fraco no braço capturado. O braço precisa ficar bem travado.'},
+'Baseball Bat Choke':{pos:'📌 Do 100 quilos ou joelho na barriga. Grip de beisebol no colarinho — configure discretamente.',cm:'Não cruzar os cotovelos ao rolar. O cruzamento dos cotovelos após o rolar é o que finaliza.'},
+'North-South Choke':{pos:'📌 Posição norte-sul (sua cabeça nos pés do adversário). Antebraço na carótida lateral.',cm:'Pressionar para baixo com força dos braços. A pressão vem da ROTAÇÃO do tronco para o lado.'},
+'Paper Cutter Choke':{pos:'📌 Do 100 quilos. Um braço passa POR BAIXO do pescoço adversário + agarra colarinho oposto.',cm:'Braço por CIMA do pescoço em vez de por baixo. Por baixo cria o ângulo correto para cortar.'},
+'Torreando pela aranha':{pos:'📌 Você por cima. Adversário em guarda aranha (pés nos bíceps). Retire um pé por vez lateralmente.',cm:'Tentar retirar os dois pés ao mesmo tempo. Tire um pé por vez.'},
+'Knee Slice pela aranha':{pos:'📌 Um pé removido do bíceps criou espaço. Neutralize o pé restante com o quadril antes de cortar.',cm:'Não neutralizar o pé restante com o quadril antes de cortar. Um pé ativo bloqueia o corte.'},
+'Stack Pass (pilha)':{pos:'📌 Você por cima. Controle das duas mangas adversárias. Vai avançar dobrando o adversário sobre si.',cm:'Passar por CIMA após o stack. Após o stack, sempre vá para o LADO.'},
+'Bull Fighter (matador)':{pos:'📌 Você por cima. Controla os dois TORNOZELOS (não mangas). Vai empurrar pés em direções opostas.',cm:'Empurrar os dois pés para o mesmo lado. Precisam ir em DIREÇÕES OPOSTAS — um para cima, um para baixo.'},
+'Sweep com gancho no joelho':{pos:'📌 Um pé no bíceps, outro ATRÁS DO JOELHO (na dobra). Controle de manga do lado do pé no bíceps.',cm:'Pé atrás da coxa em vez de atrás do joelho. Precisa ser NA DOBRA do joelho.'},
+'Tripod Sweep (tripé)':{pos:'📌 DOIS pés nos quadris adversários + UMA MÃO no tornozelo adversário. Três pontos = tripé.',cm:'Mão no joelho em vez do tornozelo. A captura deve ser no TORNOZELO para controlar a direção.'},
+'Tesoura em transição da aranha':{pos:'📌 Adversário tenta retirar o pé da aranha. Você FECHA a guarda NO MESMO MOMENTO.',cm:'Demorar na transição. A transição de aranha para tesoura deve ser INSTANTÂNEA.'},
+'Lasso Guard sweep':{pos:'📌 Seu pé ENROLADO pelo bíceps adversário (lasso). Outro pé no quadril. Controle de manga.',cm:'Lasso com pé simplesmente por dentro sem enrolar. Precisa estar ENROLADO para firmar o controle.'},
+'Omoplata da aranha':{pos:'📌 Um pé no bíceps. Abre o ângulo AGRESSIVAMENTE para o lado (45°+). Perna passa pelo ombro.',cm:'Não abrir o ângulo antes de passar a perna. Sem 45°+ de ângulo, a perna não alcança o ombro.'},
+'Triângulo da aranha':{pos:'📌 Pé no bíceps. Ângulo MUITO agressivo. Empurra o braço controlado para FORA antes de cruzar.',cm:'Ângulo insuficiente. O triângulo da aranha precisa de ângulo agressivo para funcionar.'},
+'Armlock da aranha':{pos:'📌 Pé no bíceps. Ângulo MUITO agressivo (maior que para o triângulo). Sobe o pé para o OMBRO.',cm:'Ângulo insuficiente. O armlock da aranha requer ângulo MAIOR que o triângulo.'},
+'Balloon Sweep + armlock':{pos:'📌 Pés no abdômen/quadril + controle de mangas. Adversário ereto ou levemente inclinado para frente.',cm:'Desistir quando o sweep é defendido. A defesa cria o braço para o armlock — é um combo.'},
+'De La Riva hook + omoplata':{pos:'📌 Guarda De La Riva estabelecida. Seu pé envolve a perna adversária por dentro. Controle de manga.',cm:'Tentar omoplata sem a rotação do De La Riva. A rotação do DLR é o que torna a omoplata fluida.'},
+'Mata Leão (RNC)':{pos:'📌 Você nas costas adversárias com dois ganchos. Braço em volta do pescoço. Outra mão no bíceps.',cm:'Apertar na traqueia em vez da carótida. Traqueia = lento e desconfortável. Carótida = segundos.'},
+'Arco e Flecha':{pos:'📌 Das costas com kimono. Mão no colarinho PROFUNDO (4 dedos). Um gancho vira pé no joelho adversário.',cm:'Grip raso no colarinho. A mão inteira precisa entrar — grip superficial não finaliza.'},
+'Collar Choke (colarinho cruzado)':{pos:'📌 Você nas costas adversárias. Ambas as mãos no colarinho com pulsos cruzados ATRÁS do pescoço.',cm:'Pulsos não cruzados atrás do pescoço. Sem cruzamento, perde muito da eficiência.'},
+'Clock Choke (relógio)':{pos:'📌 Adversário de barriga para baixo. Você atrás com mão no colarinho. Antebraço na carótida lateral.',cm:'Pressionar para baixo com força. Clock choke funciona por MOVIMENTO CIRCULAR, não força para baixo.'},
+'Lapela por baixo':{pos:'📌 Você nas costas adversárias. Uma mão passa POR BAIXO do braço adversário + agarra lapela oposta.',cm:'Pegar a lapela pelo lado de cima do braço. O braço precisa passar POR BAIXO para criar o ângulo.'},
+'Loop Choke de costas':{pos:'📌 Você nas costas. Adversário levanta o queixo defendendo o mata leão — isso expõe o pescoço.',cm:'Tentar o loop sem o queixo levantado. O adversário precisa levantar o queixo para abrir o espaço.'},
+'Armbar de costas':{pos:'📌 Você nas costas. Adversário usa OS DOIS BRAÇOS para defender o mata leão. Um braço fica exposto.',cm:'Tentar o armbar sem isolar o braço. Se ele tem dois braços livres, vai defender com o outro.'},
+'Shoulder Lock de costas':{pos:'📌 Você nas costas. Adversário tenta girar para escapar dos ganchos — o giro expõe o ombro.',cm:'Resistir ao giro do adversário. A shoulder lock USA o giro — deixe ele girar e aplique junto.'},
+'Turn-In (virar para dentro)':{pos:'📌 Você embaixo nas costas. Controle o PULSO do braço de estrangulamento com as DUAS mãos.',cm:'Girar para o lado ERRADO (contra o braço). Isso aperta o estrangulamento. Gire NA DIREÇÃO do braço.'},
+'Slip-Out (deslizar pelo lado)':{pos:'📌 Você embaixo nas costas. Queixo para baixo, braços fechados no peito. Vai deslizar o ombro.',cm:'Tentar deslizar com o queixo alto. Com o queixo alto, o adversário aplica o estrangulamento durante.'},
+'Ezekiel da montada':{pos:'📌 Você montado. Braço passa POR TRÁS da nuca adversária. Com essa mão, agarre a própria manga.',cm:'Levantar o quadril ao apertar. O estrangulamento é aplicado com quadril BAIXO — levanta = desequilibra.'},
+'Gravata cruzada da montada':{pos:'📌 Você montado. Ambas as mãos no colarinho. Pulsos cruzados ATRÁS do pescoço. Incline para frente.',cm:'Inclinar sem os pulsos cruzados atrás do pescoço. A inclinação sem cruzamento não cria pressão.'},
+'Arm Triangle da montada':{pos:'📌 Da montada. Um braço adversário empurrado para o lado do pescoço. Seu ombro na lateral da cabeça.',cm:'Rolar para o lado errado. Você precisa rolar para o lado ONDE O BRAÇO ESTÁ para fechar.'},
+'Bow and Arrow da montada':{pos:'📌 Da montada. Adversário começa a virar de lado. Mão no colarinho + pé no joelho que ficou exposto.',cm:'Reagir tarde à virada. A transição deve ser no INÍCIO da virada, não quando já está de lado.'},
+'Loop Choke da montada':{pos:'📌 Da montada. Adversário levanta o queixo tentando criar espaço — pescoço fica exposto.',cm:'Usar força dos braços para apertar. O loop funciona pelo POSICIONAMENTO e peso, não pela força.'},
+'Armlock da montada':{pos:'📌 Da montada. Adversário empurra um braço tentando se sentar. Esse braço é o alvo.',cm:'Girar sem manter o controle do pulso. Se o pulso escapa durante o giro, ele puxa o braço de volta.'},
+'Americana da montada':{pos:'📌 Da montada. Braço adversário empurrado acima da cabeça em 90°. SEU PEITO pressionando a cabeça.',cm:'Não pressionar o peito na cabeça. O peito na cabeça é o que mantém o cotovelo no chão.'},
+'Kimura da montada':{pos:'📌 Da montada. Controle do pulso adversário. Seu braço POR CIMA do cotovelo. Quadril BAIXO.',cm:'Levantar o quadril para executar a rotação. Quadril baixo é o que torna o Kimura da montada especial.'},
+'Triângulo da montada':{pos:'📌 Da montada. Adversário empurra seus joelhos para cima tentando se sentar — esse é o momento.',cm:'Demorar a reagir. A janela quando ele empurra os joelhos é de meio segundo — reaja imediatamente.'},
+'Pontuação por posição':{pos:'📌 Luta em andamento. Todas as posições precisam ser mantidas por 3 segundos para pontuar.',cm:'Abandonar a posição antes dos 3 segundos achando que não vai contar.'},
+'Raspagem (sweep)':{pos:'📌 Você embaixo em alguma guarda. Adversário precisa sair do chão para a raspagem pontuar.',cm:'Comemorar antes dos 3 segundos. Muitos pontos perdidos por abandonar o controle cedo.'},
+'Vantagens':{pos:'📌 Situação de quase-ponto: adversário quase saiu do chão, quase foi finalizado, quase passou a guarda.',cm:'Achar que 3 vantagens > 2 pontos. SEMPRE: 1 ponto > qualquer número de vantagens.'},
+'Tempo por faixa (adulto IBJJF)':{pos:'📌 Você vai competir. Conhecer o tempo da sua faixa muda sua estratégia de luta.',cm:'Assumir que o tempo é o mesmo em todas as organizações. Masters e Juvenis têm tempos diferentes.'},
+'Overtime e superlutas':{pos:'📌 Luta empatada em pontos e vantagens após o tempo regular.',cm:'Assumir que as regras de overtime são iguais em todas as competições. Sempre leia o edital.'},
+'Proibições para branca e azul':{pos:'📌 Competindo nas faixas iniciais. Algumas técnicas são proibidas para proteção dos atletas.',cm:'Aplicar técnicas proibidas sem verificar. Kneebar e heel hook são proibidos nas faixas iniciais.'},
+'Proibições para roxa e marrom':{pos:'📌 Competindo em faixa roxa ou marrom. Mais técnicas são permitidas, mas algumas permanecem proibidas.',cm:'Assumir "na minha faixa é permitido" sem confirmar. Varia por organização.'},
+'Golpes e condutas sempre proibidos':{pos:'📌 Em qualquer competição, qualquer faixa, qualquer organização do mundo.',cm:'Spine lock por acidente. É o golpe proibido mais frequentemente aplicado sem intenção.'},
+'Punições (penalties)':{pos:'📌 Em qualquer luta onde o árbitro aplicou ou pode aplicar punições.',cm:'Não atender à advertência verbal do árbitro. Ele frequentemente avisa verbalmente antes da punição.'},
+'Identificar vantagens na luta':{pos:'📌 Durante a luta, suas ameaças podem gerar vantagens mesmo sem finalizações completas.',cm:'Abandonar ameaças achando que não vai contar. O árbitro pode dar vantagem mesmo sem finalizar.'}
+};
+
+// ─── XP ───
+function getXP(){const s=getSession();return s?parseInt(localStorage.getItem('bjj_xp_'+s.email)||'0'):0;}
+function saveXP(x){const s=getSession();if(s)localStorage.setItem('bjj_xp_'+s.email,String(x));}
+function showXPToast(n){
+  const t=document.getElementById('xp-toast');
+  document.getElementById('xp-toast-txt').textContent='+'+n+' XP';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+function updateXPChip(){
+  document.getElementById('xp-val').textContent=getXP()+' XP';
+}
+
+// ─── TIMER ───
+let timerInterval=null, timerPaused=false, timerSecs=0;
+function startTimer(mins, techName){
+  if(timerInterval)clearInterval(timerInterval);
+  timerSecs=mins*60; timerPaused=false;
+  document.getElementById('timer-tname').textContent='Treinando: '+techName;
+  document.getElementById('timer-pause-btn').textContent='Pausar';
+  updateTimerDisp();
+  document.getElementById('timer-overlay').classList.add('active');
+  timerInterval=setInterval(()=>{
+    if(!timerPaused){
+      timerSecs--;
+      updateTimerDisp();
+      if(timerSecs<=0){clearInterval(timerInterval);document.getElementById('timer-sub').textContent='⏱ Tempo!';}
+    }
+  },1000);
+}
+function updateTimerDisp(){
+  const m=Math.floor(timerSecs/60), s=timerSecs%60;
+  document.getElementById('timer-disp').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  document.getElementById('timer-sub').textContent=timerSecs>0?'restante':'⏱ Tempo!';
+}
+function pauseTimer(){
+  timerPaused=!timerPaused;
+  document.getElementById('timer-pause-btn').textContent=timerPaused?'Continuar':'Pausar';
+}
+function stopTimer(){
+  if(timerInterval)clearInterval(timerInterval);
+  timerInterval=null;
+  document.getElementById('timer-overlay').classList.remove('active');
+}
+
+// ─── TDAH MODE ───
+let tdahMode=false;
+const focusIdx={};
+
+function toggleTDAH(){
+  tdahMode=!tdahMode;
+  document.body.classList.toggle('tdah-mode',tdahMode);
+  document.getElementById('tdah-toggle').classList.toggle('on',tdahMode);
+  buildPanels();
+}
+
+function focusNav(mi,dir){
+  const m=MODULES[mi];
+  const total=m.categories.reduce((a,c)=>a+c.techniques.length,0);
+  focusIdx[mi]=(focusIdx[mi]||0)+dir;
+  if(focusIdx[mi]<0)focusIdx[mi]=0;
+  if(focusIdx[mi]>=total)focusIdx[mi]=total-1;
+  document.getElementById('panel-'+mi).innerHTML=buildModule(m,mi);
+}
+
+function getTimerChipsHTML(techName){
+  return`<div class="timer-chips">
+    <div class="timer-chip" onclick="startTimer(3,'${techName.replace(/'/g,"\\'")}')"><i class="ti ti-player-play"></i> 3 min</div>
+    <div class="timer-chip" onclick="startTimer(5,'${techName.replace(/'/g,"\\'")}')"><i class="ti ti-player-play"></i> 5 min</div>
+    <div class="timer-chip" onclick="startTimer(10,'${techName.replace(/'/g,"\\'")}')"><i class="ti ti-player-play"></i> 10 min</div>
+  </div>`;
+}
+
 // ─── AUTH ───
 const ADMIN = 'phreis.propaganda@gmail.com';
 
@@ -829,6 +1079,7 @@ function buildApp(){
   buildTabs();
   buildPanels();
   updateGlobalProg();
+  updateXPChip();
 }
 
 function buildTabs(){
@@ -864,7 +1115,58 @@ function buildModule(m, mi){
   const totalT = m.categories.reduce((a,c)=>a+c.techniques.length,0);
   const doneT = m.categories.reduce((a,c,ci)=>a+c.techniques.filter((_,ti)=>isDone(mi+'-'+ci+'-'+ti)).length,0);
   const pct = Math.round(doneT/totalT*100);
-  let html = `
+  const fi = focusIdx[mi]||0;
+
+  // Build flat list for focus card
+  const allT=[];
+  m.categories.forEach((c,ci)=>c.techniques.forEach((t,ti)=>allT.push({t,ci,ti,c})));
+  const cur=allT[fi]||allT[0];
+
+  let html='';
+
+  // ── FOCUS CARD (TDAH MODE) ──
+  if(cur){
+    const extra=EXTRA[cur.t.n]||{pos:'',cm:''};
+    const fKey=mi+'-'+cur.ci+'-'+cur.ti;
+    const fDone=isDone(fKey);
+    html+=`<div class="focus-wrap">
+      <div class="focus-hint">🧠 <strong>Modo Foco ativado.</strong> Uma técnica por vez. Sem distrações. Use o timer para cronometrar o treino.</div>
+      <div class="focus-nav-row">
+        <div class="fnav-btn" onclick="focusNav(${mi},-1)"><i class="ti ti-chevron-left"></i></div>
+        <div class="fnav-info">${fi+1} / ${totalT} &nbsp;·&nbsp; ${cur.c.name}</div>
+        <div class="fnav-btn" onclick="focusNav(${mi},1)"><i class="ti ti-chevron-right"></i></div>
+      </div>
+      <div class="focus-card" style="border-top:3px solid ${cur.c.col}">
+        <div class="fc-top">
+          <div class="fc-cat-lbl" style="color:${cur.c.col}">${cur.c.name}</div>
+          <div class="fc-title">${cur.t.n}</div>
+        </div>
+        <div class="fc-body">
+          ${extra.pos?`<div class="pos-box"><span class="pos-lbl">Posição de entrada</span>${extra.pos}</div>`:''}
+          <div style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:2px">${cur.t.d}</div>
+          <div class="fc-steps-list">${cur.t.s.map((st,si)=>`<div class="fc-step">
+            <span class="fc-step-n" style="background:${cur.c.colBg};color:${cur.c.col}">${si+1}</span>
+            <span class="fc-step-t">${st}</span>
+          </div>`).join('')}</div>
+          ${extra.cm?`<div class="mistake-box"><i class="ti ti-alert-triangle"></i><span><strong>Erro comum:</strong> ${extra.cm}</span></div>`:''}
+          <div class="tip-box"><i class="ti ti-bulb" style="color:var(--amber)"></i><span><strong>Dica:</strong> ${cur.t.t}</span></div>
+        </div>
+        <div class="fc-actions">
+          ${getTimerChipsHTML(cur.t.n)}
+          <div style="display:flex;gap:6px">
+            <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(cur.t.yt)}" target="_blank" class="act-btn"><i class="ti ti-player-play"></i> YouTube</a>
+            <a href="https://www.google.com/search?q=${encodeURIComponent(cur.t.n+' jiu jitsu')}&tbm=isch" target="_blank" class="act-btn"><i class="ti ti-photo"></i> Fotos</a>
+          </div>
+          <button class="fc-mark-btn${fDone?' done':''}" id="fcbtn-${fKey}" onclick="markDone(event,'${fKey}','${mi}-cat-${cur.ci}',${mi},true)">
+            <i class="ti ti-${fDone?'circle-check':'circle-plus'}"></i> ${fDone?'Feito! ✓':'Marcar como feito'}
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── NORMAL MODE HERO ──
+  html+=`
   <div class="mod-hero">
     <div class="mod-number">${m.num}</div>
     <div class="mod-meta">
@@ -887,6 +1189,7 @@ function buildModule(m, mi){
     <div class="progress-track"><div class="progress-fill" id="mod-prog-${mi}" style="width:${pct}%;background:${m.color}"></div></div>
   </div>
   <div style="margin-top:12px">`;
+
   m.categories.forEach((cat,ci)=>{
     const catKey = mi+'-cat-'+ci;
     const isOpen = openCats.has(catKey);
@@ -906,6 +1209,7 @@ function buildModule(m, mi){
       const tKey = mi+'-'+ci+'-'+ti;
       const done = isDone(tKey);
       const tOpen = openTechs.has(tKey);
+      const extra = EXTRA[t.n]||{pos:'',cm:''};
       html += `<div class="tech-card${done?' done-card':''}" id="techcard-${tKey}">
         <div class="tech-row" onclick="toggleTech('${tKey}')">
           <span class="tech-num">${String(ti+1).padStart(2,'0')}</span>
@@ -915,12 +1219,15 @@ function buildModule(m, mi){
           <i class="ti ti-chevron-down tech-chev${tOpen?' open':''}" id="techchev-${tKey}"></i>
         </div>
         <div class="tech-detail${tOpen?' open':''}" id="techdetail-${tKey}">
+          ${extra.pos?`<div class="pos-box" style="margin-top:10px"><span class="pos-lbl">Posição de entrada</span>${extra.pos}</div>`:''}
           <div class="detail-desc">${t.d}</div>
           <div class="steps-list">${t.s.map((st,si)=>`<div class="step-item">
             <span class="step-num" style="background:${cat.colBg};color:${cat.col}">${si+1}</span>
             <span>${st}</span>
           </div>`).join('')}</div>
+          ${extra.cm?`<div class="mistake-box"><i class="ti ti-alert-triangle"></i><span><strong>Erro comum:</strong> ${extra.cm}</span></div>`:''}
           <div class="tip-box"><i class="ti ti-bulb" style="color:var(--amber)"></i><span><strong>Dica:</strong> ${t.t}</span></div>
+          ${getTimerChipsHTML(t.n)}
           <div class="action-row">
             <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(t.yt)}" target="_blank" class="act-btn"><i class="ti ti-player-play"></i> YouTube</a>
             <a href="https://www.google.com/search?q=${encodeURIComponent(t.n+' jiu jitsu')}&tbm=isch" target="_blank" class="act-btn"><i class="ti ti-photo"></i> Imagens</a>
@@ -966,26 +1273,40 @@ function toggleTech(key){
   document.getElementById('techchev-'+key)?.classList.toggle('open', open);
 }
 
-function markDone(e, tKey, catKey, mi){
+function markDone(e, tKey, catKey, mi, isFocus){
   e.stopPropagation();
+  const wasDone = isDone(tKey);
   toggleDoneKey(tKey);
   const done = isDone(tKey);
+
+  // XP
+  let xp = getXP();
+  if(!wasDone && done){ xp+=10; saveXP(xp); showXPToast(10); }
+  else if(wasDone && !done){ xp=Math.max(0,xp-10); saveXP(xp); }
+  updateXPChip();
+
+  // Update normal card
   const card = document.getElementById('techcard-'+tKey);
   const badge = document.getElementById('badge-'+tKey);
   const btn = document.getElementById('donebtn-'+tKey);
   if(card) card.classList.toggle('done-card', done);
   if(badge){badge.textContent=done?'✓ Feito':'Pendente';badge.className='tech-badge '+(done?'badge-done':'badge-todo');}
-  if(btn){
-    btn.className='act-btn'+(done?' done-btn':'');
-    btn.innerHTML=`<i class="ti ti-${done?'circle-check':'circle-plus'}"></i> ${done?'Feito':'Marcar'}`;
-  }
+  if(btn){btn.className='act-btn'+(done?' done-btn':'');btn.innerHTML=`<i class="ti ti-${done?'circle-check':'circle-plus'}"></i> ${done?'Feito':'Marcar'}`;}
+
+  // Update focus card button
+  const fcbtn = document.getElementById('fcbtn-'+tKey);
+  if(fcbtn){fcbtn.className='fc-mark-btn'+(done?' done':'');fcbtn.innerHTML=`<i class="ti ti-${done?'circle-check':'circle-plus'}"></i> ${done?'Feito! ✓':'Marcar como feito'}`;}
+
+  // Update category + module counters
   const m = MODULES[mi];
   const ci = parseInt(catKey.split('-cat-')[1]);
   const cat = m.categories[ci];
   const catDone = cat.techniques.filter((_,ti)=>isDone(mi+'-'+ci+'-'+ti)).length;
   const catPct = Math.round(catDone/cat.techniques.length*100);
-  document.getElementById('catcount-'+catKey).textContent = `${catDone}/${cat.techniques.length}`;
-  document.getElementById('catpct-'+catKey).textContent = catPct+'%';
+  const ccEl = document.getElementById('catcount-'+catKey);
+  const cpEl = document.getElementById('catpct-'+catKey);
+  if(ccEl) ccEl.textContent = `${catDone}/${cat.techniques.length}`;
+  if(cpEl) cpEl.textContent = catPct+'%';
   const totalT = m.categories.reduce((a,c)=>a+c.techniques.length,0);
   const doneT = m.categories.reduce((a,c,ci2)=>a+c.techniques.filter((_,ti)=>isDone(mi+'-'+ci2+'-'+ti)).length,0);
   const modPct = Math.round(doneT/totalT*100);
@@ -996,6 +1317,14 @@ function markDone(e, tKey, catKey, mi){
   if(pctEl) pctEl.textContent = modPct+'%';
   if(doneEl) doneEl.textContent = doneT;
   updateGlobalProg();
+
+  // Auto-advance in TDAH mode
+  if(isFocus && done){
+    const fi = focusIdx[mi]||0;
+    if(fi < totalT-1){
+      setTimeout(()=>focusNav(mi,1), 900);
+    }
+  }
 }
 
 // ─── ADMIN ───
